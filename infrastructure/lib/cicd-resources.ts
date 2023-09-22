@@ -96,7 +96,7 @@ export class CICDResources {
     // get the pre-existing deploy project IAM role
     // this role needs to have permissions to EKS and needs to 
     // have been added to the aws-auth configmap so it has permissions 
-    // (could create here and process here instead but generally would expect a single role shared across projects, and updating the configmap from cdk is a pain)
+    // (could create here and process here instead but generally would expect a single role shared across projects, and updating the configmap for an existing cluster from cdk is not supported)
     const deployProjectRole = iam.Role.fromRoleName(scope, 'DeployProjectRole', Constants.CodeBuildDeployProjectIAMRole);
 
     // deployment script 

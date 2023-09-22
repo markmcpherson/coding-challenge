@@ -1,6 +1,7 @@
 # Helm Chart for the application
 
 This is fairly standard/basic with
+* sets the environment variable HELLO used by the application 
 * env-specific overrides (for an env called 'dev')
 * setting external-dns name and using a service load balancer to allow internet access with a friendly name
 

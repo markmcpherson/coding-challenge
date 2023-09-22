@@ -7,3 +7,6 @@ It contains three directories, each with their own README describing the content
 * helm - Helm chart for the k8s deployment in EKS on AWS
 * infrastructure - CDK code to deploy a simple CI/CD pipeline
 
+
+I assume there is an existing EKS cluster available.  For testing purposes I created a cluster based on the EKS Blueprints CDK (code here: https://github.com/markmcpherson/eks-base-cdk)
+

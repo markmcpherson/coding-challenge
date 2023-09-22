@@ -1,5 +1,6 @@
 import {
   Stack, StackProps,
+  aws_eks as eks
 } from 'aws-cdk-lib';
 
 import { Construct } from 'constructs';

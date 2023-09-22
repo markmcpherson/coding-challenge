@@ -11,6 +11,7 @@ It includes
 
 * NodeJS
 * `npm install -g typescript cdk`
+# `npm install`
 
 ## Build/Deploy
 * `cdk synth`
@@ -24,3 +25,5 @@ The app entry point is in bin/app-infrastructure.ts.
 The CloudFormation stack is defined in lib/app-infrastructure-stack.ts
 The CI/CD pipeline is defined in lib/app-infrastructure-stack
 There are some constants and overridable values (from the local ENV) in lib/constants.ts
+
+
