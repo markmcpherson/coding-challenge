@@ -7,7 +7,7 @@ export class Constants {
     public static readonly GitHubTokenSecretName = 'dev/github-access-token'; // Name of the secret in AWS SecretsManager containing the github oauth token
 
     // overridable constants 
-    public static readonly EKSClusterName = process.env.EKS_CLUSTER_NAME || ' eks-blueprint';
+    public static readonly EKSClusterName = process.env.EKS_CLUSTER_NAME || ' eks-dev-cluster';
     public static readonly DeploymentEnvironment = process.env.DEPLOY_ENVIRONMENT || 'dev'; // e.g. dev/staging/prod. There is helm chart values file for dev.
     public static readonly DeploymentNamespace = process.env.DEPLOY_NAMESPACE || 'dev';
     public static readonly ApplicationName = process.env.APPLICATION_NAME || 'application';
