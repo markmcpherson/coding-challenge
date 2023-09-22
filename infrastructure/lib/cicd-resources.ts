@@ -120,7 +120,7 @@ export class CICDResources {
         },
         build: {
           commands: [
-            'helm upgrade --atomic --timeout 5m0s --wait -i $APP_NAME-$DEPLOY_ENV helm/$APP_NAME -n $DEPLOY_NS -f helm/$APP_NAME/values.$DEPLOY_ENV.yaml --set image.repository=$ECR_REPO_URI --set image.tag=$BUILD_VERSION'
+            'helm upgrade --atomic --timeout 1m0s --wait -i $APP_NAME-$DEPLOY_ENV helm/$APP_NAME -n $DEPLOY_NS -f helm/$APP_NAME/values.$DEPLOY_ENV.yaml --set image.repository=$ECR_REPO_URI --set image.tag=$BUILD_VERSION'
           ]
         },
         post_build: {
