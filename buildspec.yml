@@ -1,0 +1,24 @@
+version: 0.2
+env:
+  variables:
+    VERSION: "0.1"
+  exported-variables:
+    - BUILD_VERSION 
+phases:
+  install: # Install AWS cli, kubectl (needed for Helm) and Helm
+    commands:
+      - BUILD_VERSION=$(echo $VERSION).$(echo $CODEBUILD_BUILD_NUMBER)
+  pre_build: # Add kubeconfig to access to EKS cluster
+    commands:
+      - echo Login to ECR...
+      - ECR_URI=$(echo $ECR_REPO_URI | cut -f 1 -d '/')
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_URI
+  build: # Build Docker image and tag it with the commit sha
+    commands:
+      - echo Building docker image…
+      - docker build -t $ECR_REPO_URI:latest $CODEBUILD_SRC_DIR/application
+      - docker tag $ECR_REPO_URI:latest $ECR_REPO_URI:$BUILD_VERSION
+  post_build: # Push the Docker image to the ECR
+    commands:
+      - echo Pushing ECR…
+      - docker push $ECR_REPO_URI:$BUILD_VERSION

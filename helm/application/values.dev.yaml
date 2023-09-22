@@ -1,0 +1,7 @@
+hello:
+  value: testdev
+
+service:
+  annotations: {
+    external-dns.alpha.kubernetes.io/hostname: application.themcphersons.uk
+  }
